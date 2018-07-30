@@ -9,6 +9,9 @@ mongoose.connect('mongodb://localhost:27017/vidjot-dev', { useNewUrlParser: true
  .then(() => console.log('MongoDB connected...'))
  .catch(err => console.log(err));
 
+ // Load Idea Model
+ require('./models/Idea');
+ const Idea = mongoose.model('ideas');
 
 // Handlebars Middleware
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
