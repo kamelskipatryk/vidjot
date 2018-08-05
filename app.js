@@ -115,6 +115,16 @@ app.put('/ideas/:id', (req, res) => {
     })
 });
 
+// Delete Form process
+app.delete('/ideas/:id', (req, res) => {
+    Idea.findOneAndRemove({
+            _id: req.params.id
+        })
+        .then(() => {
+            res.redirect('/ideas');
+        });
+});
+
 // Port
 const port = 5000;
 app.listen(port, () => {
