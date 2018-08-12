@@ -6,12 +6,16 @@ const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const flash = require('connect-flash');
 const session = require('express-session');
+const passport = require('passport');
 
 const app = express();
 
 // Load routes
 const ideas = require('./routes/ideas');
 const users = require('./routes/users');
+
+// Passport Config
+require('./config/passport')(passport);
 
 // Connect to mongose
 mongoose.connect('mongodb://127.0.0.1:27017/vidjot-dev', { useNewUrlParser: true })
